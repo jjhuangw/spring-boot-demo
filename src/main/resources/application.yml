@@ -1,0 +1,59 @@
+spring:
+    application:
+        name: hello-spring-boot
+    main:
+        web-application-type: servlet
+        banner-mode: "off"
+    datasource:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        url: jdbc:log4jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+        username: sa
+        password: 
+        hikari:
+            idle-timeout: 20000
+            maximum-pool-size: 10
+            minimum-idle: 2
+            pool-name: sample-pool
+        dbcp:
+            validation-query: SELECT 1
+            test-while-idle: true
+    jpa:
+        hibernate:
+            ddl-auto: create
+
+logging:
+    level:
+        org.springframework.web: DEBUG
+
+server:
+    port: 8080
+    servlet:
+       context-path: /hello-spring-boot
+    error.whitelabel.enabled: true
+    max-http-header-size: 16384
+    compression:
+        enabled: true
+        mime-types: text/html,text/plain,application/json,multipart/form-data
+    tomcat:
+        uri-encoding: UTF-8
+        max-threads: 2000
+        basedir: logs
+        accesslog:
+            enabled: true
+            buffered: false
+            directory: .
+            pattern: combined
+            prefix: tomcat-access
+    error:
+      include-exception: true
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        shutdown:
+            enabled: true
+        health:
+           show-details: always

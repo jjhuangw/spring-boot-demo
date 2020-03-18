@@ -1,0 +1,1 @@
+insert into notification (title, content, create_time, update_time) VALUES ('hello spring boot', 'demo',now(), now());
