@@ -33,6 +33,7 @@ public class NotificationService {
 
 	public List<NotificationEntity> findNotifications(String name) {
 		log.info("hello " + name);
+		log.trace("this is a trace log. " + name);
 		createNotification("test_1", "hello 1");
 		createNotification("test_2", "hello 2");
 		createNotification("test_3", "hello 3");
