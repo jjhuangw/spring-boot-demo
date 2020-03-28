@@ -27,6 +27,6 @@ class NotificationControllerTest {
 	
 	@Test
 	public void testFindNotification() throws Exception {
-		this.mockMvc.perform(get("/find?name=john")).andExpect(status().is2xxSuccessful());
+		this.mockMvc.perform(get("/notification/h2?name=john")).andExpect(status().is2xxSuccessful());
 	}
 }

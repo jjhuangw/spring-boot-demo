@@ -11,13 +11,13 @@ import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 
 @RestController
-@Api(tags = "Hello API")
+@Api(tags = "Hello API - embedded DB")
 @AllArgsConstructor
 public class NotificationController {
 
 	private NotificationService notificationService;
 
-	@GetMapping(path = "/find")
+	@GetMapping(path = "/notification/h2")
 	public ResponseEntity<?> findNotification(@RequestParam String name) {
 		return new ResponseEntity<>(notificationService.findNotifications(name),
 				HttpStatus.OK);

@@ -24,6 +24,15 @@ spring:
     jpa:
         hibernate:
             ddl-auto: create
+    redis:
+        database: 1
+        host: localhost
+        port: 6370
+        jedis:
+            pool:
+                max-active: 8
+                max-idle: 1
+                min-idle: 0        
 
 logging:
     level:

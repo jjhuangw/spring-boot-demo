@@ -1,6 +1,7 @@
 package hello.entity;
 
-import java.util.Date;
+import java.io.Serializable;
+import java.time.ZonedDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,13 +12,17 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name = "notification")
 @Proxy(lazy = false)
-public class NotificationEntity {
+public class NotificationEntity implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "notification_id")
@@ -31,8 +36,10 @@ public class NotificationEntity {
 	public String content;
 
 	@Column(name = "create_time", nullable = false)
-	public Date createTime;
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+	public ZonedDateTime createTime;
 
 	@Column(name = "update_time", nullable = false)
-	public Date updateTime;
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSZ")
+	public ZonedDateTime updateTime;
 }

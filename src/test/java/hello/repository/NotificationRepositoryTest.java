@@ -20,7 +20,7 @@ class NotificationRepositoryTest {
 	
 	@Test
 	void testFindNotifications() {
-		Assert.assertEquals(1, notificationRepository.findNotifications().size());
+		Assert.assertEquals(1, notificationRepository.findNotifications("hello spring boot").size());
 	}
 
 }

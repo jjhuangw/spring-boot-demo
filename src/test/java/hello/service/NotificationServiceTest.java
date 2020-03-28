@@ -31,7 +31,7 @@ class NotificationServiceTest {
 		NotificationEntity e = new NotificationEntity();
 		list.add(e);
 		Mockito.when(
-				notificationRepository.findNotifications())
+				notificationRepository.findNotifications("John"))
 				.thenReturn(list);
 		Assert.assertEquals(list.size(), notebookService.findNotifications("John").size());
 	}
