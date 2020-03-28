@@ -25,7 +25,8 @@ public class TestRedisConfiguration {
 			log.warn("A local embedded RedisServer is starting....");
 		} catch (Exception e) {
 			log.error(
-					"Port was bloked (6370) by other process. You can Kill the blocked port process with cmd => kill -9  $(lsof -t -i:6370)");
+					"Port was bloked (6370) by other process."
+					+ " You can Kill the blocked port process with cmd => kill -9  $(lsof -t -i:6370)");
 			e.printStackTrace();
 		}
 	}
